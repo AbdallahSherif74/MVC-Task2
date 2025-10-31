@@ -1,4 +1,7 @@
 using GymManagementDAL.Data.Contexts;
+using GymManagementDAL.Entities;
+using GymManagementDAL.Repositories.Classes;
+using GymManagementDAL.Repositories.interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace GymManagmentPL
@@ -18,6 +21,8 @@ namespace GymManagmentPL
                
             );
 
+            //builder.Services.AddScoped( typeof(IGenericRepo<>),typeof(GenericRepo<>));
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
